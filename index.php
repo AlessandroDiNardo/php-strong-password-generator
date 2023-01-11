@@ -54,7 +54,8 @@
         cursor: pointer;
         background-color: #3ba42c;
         color: white;
-        border: 1px solid black;
+        border: 1px solid #3ba42c;
+        transition: 1s ease-in-out;
     }
 
 </style>
@@ -69,7 +70,7 @@
         <h1>Strong Password Generator</h1>
             <form method="GET">
                 <label for="numchar">Choose password length:</label>
-                <input type="text" name="numchar" placeholder="min 8 chars..." class="box-num">
+                <input type="text" name="numchar" placeholder="min 8 / max 15 chars..." class="box-num">
                 <button value="GENERATE" class="btn-gen">
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
