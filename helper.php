@@ -14,10 +14,10 @@
         return implode($pass); //trasforma l'array in stringa
     }   
 
-    // funzione che controlla che il numero di caratteri inseriti sia maggiore di 8, nel caso fosse minore non stampa psw
+    // funzione che controlla che il numero di caratteri inseriti sia maggiore di 8 e minore di 15, nel caso fosse minore non stampa psw
     function validatePassword($numChar) {
 
-        if($numChar < 8) {
+        if($numChar < 8 || $numChar > 15) {
             return "";
         }
 
