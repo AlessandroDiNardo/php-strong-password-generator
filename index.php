@@ -11,19 +11,9 @@
 </style>
 <?php
 
-    $numChar = $_GET["numchar"];
+    session_start();
 
-    // funzione per generare la psw
-    function randomPassword($numChar) {
-        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-        $pass = array(); //variabile pass dichiarata come array
-        $alphaLength = strlen($alphabet) - 1; //lunghezza dell'alfabeto - 1 per poi capovolgerla in stringa
-        for ($i = 0; $i < $numChar; $i++) {
-            $n = rand(0, $alphaLength);
-            $pass[] = $alphabet[$n];
-        }
-        return implode($pass); //trasforma l'array in stringa
-    }
+    require_once __DIR__ . "/helper.php";
 ?>
 <body>
     <h1>Strong Password Generator</h1>
@@ -33,10 +23,15 @@
         <input type="submit" value="GENERATE">
     </form>
 
-        <?php
-           if($numChar !== false) {
-                echo randomPassword($numChar);
-           }
-        ?>
+    <?php
+        $newPsw = randomPassword($numChar);
+
+        if($newPsw){
+
+            $_SESSION["newpsw"] = $newPsw;
+            header('Location: ./psw.php');
+        }
+
+    ?>
 </body>
 </html>
